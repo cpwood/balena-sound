@@ -43,15 +43,19 @@ function route_input_source() {
 
 # Route "balena-sound.output" to the appropriate audio hardware
 function route_output_sink() {
-  local OUTPUT=""
+  #local OUTPUT=""
 
   # Audio block outputs the default sink name to this file
   # If file doesn't exist, default to sink #0. This shouldn't happen though
-  local SINK_FILE=/run/pulse/pulseaudio.sink
-  if [[ -f "$SINK_FILE" ]]; then
-    OUTPUT=$(cat "$SINK_FILE")
-  fi
-  OUTPUT="${OUTPUT:-0}"
+  #local SINK_FILE=/run/pulse/pulseaudio.sink
+  #if [[ -f "$SINK_FILE" ]]; then
+  #  OUTPUT=$(cat "$SINK_FILE")
+  #fi
+  #OUTPUT="${OUTPUT:-0}"
+
+  # WooAudio customisation
+  local OUTPUT="alsa_output.usb-soundcard-1.analog-stereo"
+  
   sed -i "s/%OUTPUT_SINK%/sink=\"$OUTPUT\"/" "$CONFIG_FILE"
   echo "Routing 'balena-sound.output' to '$OUTPUT'."
 }

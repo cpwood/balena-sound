@@ -1,5 +1,7 @@
 ![logo](https://raw.githubusercontent.com/balena-io-projects/balena-sound/master/docs/images/balenaSound-logo.png)
 
+> **Customised version for WooAudio Fireflies W7**. File that is customised is `core/audio/startup.sh`; the `route_output_sink()` function has been rewritten.
+
 **Starter project enabling you to add multi-room audio streaming via Bluetooth, Airplay or Spotify Connect to any old speakers or Hi-Fi using just a Raspberry Pi.**
 
 ## Highlights
